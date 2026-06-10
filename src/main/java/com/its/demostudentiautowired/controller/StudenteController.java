@@ -3,15 +3,13 @@ package com.its.demostudentiautowired.controller;
 import com.its.demostudentiautowired.entity.Studente;
 import com.its.demostudentiautowired.service.StudenteService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/studentecontroller")
+    @RequestMapping("/api/studentecontroller")
 public class StudenteController {
 
     //CON L'AUTOWIRED INIETTA TUTTO QUELLO CHE STA DENTRO L'INTERFACCIA CHE
@@ -23,5 +21,12 @@ public class StudenteController {
     @GetMapping("/elenco")
     public List<Studente> getAll(){
         return studenteService.getAll();
+    }
+
+    //VIENE UTILIZZATO QUANDO DEVI SALVARE UN NUOVO OGGETTO CON IL REQUEST BODY
+        @PostMapping("/salva-studente")
+    //STRING PERCHE' DOPO IL CONTROLLO DEVE RESTITUIRMI UNM MESSAGGIO CHE PRENDE NEL ServiceImpl
+    public String create (@RequestBody Studente studente) {
+        return studenteService.create(studente);
     }
 }

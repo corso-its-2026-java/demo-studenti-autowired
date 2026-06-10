@@ -10,13 +10,13 @@ public class Studente {
     }
 
 //COSTRUTTORE PIENO E SERVE PER INIZIALIZZARE (COSTRUIRE) GLI OGGETTI
-    public Studente (int id,String nome,String corso){
+    public Studente (Integer id,String nome,String corso){
         this.id=id;
         this.nome=nome;
         this.corso=corso;
     }
 //PRENDIAMO IL VALORE E LO RESTITUIAMO
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 //SETTIAMO O CAMBIAMO IL VALORE DOPO

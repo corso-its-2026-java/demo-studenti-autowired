@@ -9,4 +9,7 @@ public interface StudenteService {
     List <Studente> getAll();
     // CREA UN NUOVO PACKAGE DENTRO IL SERVICE PER LE IMPLEMENTAZIONI "ServiceImpl"
     // E POI UNA CLASSE "StudenteServiceImpl"
+
+    String create (Studente studente);
+
 }

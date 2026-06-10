@@ -15,6 +15,7 @@ public class StudenteServiceImpl implements StudenteService {
     //NEL <> SI INSERISCE LA CLASSE CHE SI RICHIAMA
     //SI USANO LE LISTE PERCHE' SONO PIU' POTENTI DEGLI ARRAY.
     public List<Studente> studenti = new ArrayList<>();
+
     //CREAZIONE OGGETTO CON IL COSTRUTTORE
     public StudenteServiceImpl() {
         Studente studente = new Studente();
@@ -35,5 +36,26 @@ public class StudenteServiceImpl implements StudenteService {
     public List<Studente> getAll() {
         return studenti;
     }
+
+    @Override
+    public String create(Studente studente) {
+//CICLA PER VEDERE SE CI SONO DUPLICATI IN ID:
+        if (studente.getId() > 0) {
+            //PER OGNI Studente (studenteLista = singolo elemento all'interno della lista )
+            // //ALL'INTERNO DELLA LISTA studenti...
+            for (Studente studenteLista : studenti) {
+                //FAMMI QUESTO:
+                if (studente.getId().equals(studenteLista.getId()))
+                    return "Impossibile registrare due studenti con lo stesso id.";
+                }
+            }
+//LEGGE I DATI SCRITTI SU E FA I CONTROLLI PER QUANTO RIGUARDA I PARAMETRI
+        if (studente.getNome() != null && studente.getCorso() != null && studente.getId() > 0) {
+            studenti.add(studente);
+            return "Studente aggiunto con successo.";
+        } else
+            return "Errore riscontrato.";
+    }
+
 }
 
